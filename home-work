@@ -1,0 +1,575 @@
+IAM:
+IAM Resources:
+IAM (Identity and Access Management) has several key resources, including Users, Groups, Roles, Policies, and Permissions.
+
+Deployment Model in IAM:
+IAM follows a cloud-based deployment model and is an integral part of Amazon Web Services (AWS) for managing access to AWS resources.
+
+Identities in IAM:
+Identities in IAM refer to entities that can be authenticated and authorized to access AWS resources. These include Users, Groups, and Roles.
+
+IAM User:
+IAM User is an individual identity associated with your AWS account. It represents a person or service that interacts with AWS.
+
+IAM Group:
+IAM Group is a collection of IAM Users. Instead of managing permissions for individual users, you can assign permissions to a group, making it easier to manage access.
+
+IAM Policy:
+IAM Policy is a set of permissions that define what actions are allowed or denied on AWS resources. Policies can be attached to Users, Groups, or Roles.
+
+IAM Role:
+IAM Role is similar to a User but is not associated with a specific identity. It is assumed by entities like Users, Applications, or AWS services for temporary access.
+
+Identity Based Policy Attachment:
+Identity-based policies are attached to IAM Users, Groups, or Roles to grant permissions to those entities.
+
+Resource Based Policy Attachment:
+Resource-based policies are attached directly to AWS resources like S3 buckets or Lambda functions, defining who can access the resource.
+
+Creating Policy via JSON Code:
+Yes, you can create IAM policies using JSON (JavaScript Object Notation) code, specifying the permissions and resources.
+
+Default Permission for a User:
+By default, when a user is created, they do not have any permissions. Permissions are granted by attaching policies to the user.
+
+Dominator Policy:
+There is no specific concept of a "dominator policy" in IAM. It might be a term used in a specific context or organization.
+
+ARN (Amazon Resource Name):
+ARN is a unique identifier for AWS resources. It includes information such as the AWS service, region, account ID, resource type, and resource name.
+
+Fields in ARN:
+- `arn:aws:service:region:account-id:resource-type/resource-name`
+
+Types of ARN Partition:
+There are two types: `aws` for AWS resources and `aws-cn` for AWS China resources.
+
+Tags:
+Tags are key-value pairs that can be added to IAM resources for better organization and management. They help you categorize and track resources.
+
+
+S3:
+Block Storage vs. Object Storage:
+- Block Storage: Manages data in fixed-sized blocks, typically used with servers and applications. Offers low-latency access and is ideal for databases and virtual machines.
+  
+- Object Storage:  Manages data as objects with metadata, suitable for scalable and distributed storage. Ideal for storing and retrieving large amounts of unstructured data like images, videos, and backups.
+
+Static Website vs. Dynamic Website:
+- Static Website: Contains fixed content that doesn't change frequently. HTML, CSS, and images are pre-built and delivered to users as is.
+  
+- Dynamic Website: Content is generated on-the-fly in response to user requests. Often involves databases and server-side processing for personalized content.
+
+Naming Rules:
+- S3 Bucket Names: Must be globally unique, between 3 and 63 characters long, and can contain only lowercase letters, numbers, hyphens, and periods.
+  
+- S3 Object Names: Case-sensitive, supports most Unicode characters, and has no restrictions on naming conventions.
+
+Major Resource of S3 Bucket:
+The major resource in an S3 bucket is the object, which can be any file, including text files, images, videos, etc.
+
+Hosting Static Websites vs. Dynamic Websites:
+- Static Websites: Simplicity, lower cost, and faster performance for content that doesn't change often.
+  
+- Dynamic Websites: Required for interactive content, personalized experiences, and real-time data.
+
+Versioning & Why We Need It:
+- Versioning:  Enables the storage of multiple versions of an object in a bucket.
+  
+- Why We Need It: Helps recover from accidental deletion or overwrites, and provides a history of changes.
+
+Objects and Types of Objects in S3 Bucket:
+Objects can be any file, and types include Standard, Intelligent-Tiering, Glacier, and more, each with varying costs and retrieval times.
+
+MFA Delete in S3 Bucket:
+MFA (Multi-Factor Authentication) Delete adds an extra layer of security, requiring additional authentication to delete objects in a bucket.
+
+S3 Multipart Upload:
+A feature to upload large objects in parts, improving efficiency, and enabling pause and resume capabilities.
+
+Storage Classes in Amazon S3:
+- Standard
+- Intelligent-Tiering
+- One Zone-Infrequent Access
+- Glacier
+- Glacier Deep Archive
+- Outposts
+
+ACL (Access Control List):
+Defines permissions on S3 objects or buckets, allowing or denying access to specified users or groups.
+
+Why Do We Need ACL:
+ACLs control who can access and perform actions on your S3 resources, providing granular control over permissions.
+
+Lifecycle Policy & Rule:
+- Lifecycle Policy: Defines actions to be taken on objects over time.
+  
+- Why We Need It: Automates data management, reduces costs by moving data to cheaper storage classes or deleting obsolete objects.
+
+Making a Bucket Public:
+Configure bucket policies or block public access settings to make a bucket public.
+
+Giving Public Access to a Bucket:
+Set bucket or object ACLs to allow public access or use bucket policies.
+
+AWS Pricing Factors of S3 Service:
+Pricing is based on storage class, storage used, data transfer, requests, and additional features like versioning.
+
+Making an Object Public:
+Set the object's ACL to allow public read access or configure a bucket policy.
+
+Configuring Static Website Logs in S3:
+Enable server access logging and define the target bucket to store logs for your static website.
+
+CORS (Cross-Origin Resource Sharing):
+A security feature that controls web page access to resources from different domains.
+
+S3 Inventory:
+A feature providing scheduled reports on objects and their metadata for auditing and compliance.
+
+Requester Pays:
+A feature where the requester pays for data transfer and request costs, not the bucket owner.
+
+Transfer Acceleration:
+Also known as S3 Transfer Acceleration, it improves object upload/download speed using Amazon CloudFront's globally distributed edge locations. Useful for faster data transfer.
+
+
+CLOUD_TRAIL: 
+- it Records API calls and events within your AWS account, providing a history of actions taken by users, services, or AWS itself.
+
+Purpose of Trails in CloudTrail:
+- Purpose: Offers visibility into account activity, aiding in security, compliance, and troubleshooting.
+
+Creating a Trail in AWS CloudTrail:
+1. sign in to AWS Console:
+   - Access the AWS Management Console.
+
+2. Navigate to CloudTrail:
+   - Open the CloudTrail service.
+
+3. Create Trail:
+   - Click on "Trails" in the left pane.
+   - Choose "Create trail."
+   - Define a trail name and configure settings.
+   - Select an S3 bucket for storing logs.
+
+4. Review and Create:
+   - Review settings and click "Create trail."
+
+Enabling Logging for S3 Bucket using CloudTrail:
+- Enable CloudTrail:
+  - Create a trail, associating it with an S3 bucket.
+  - Specify S3 data events to capture actions on the bucket.
+
+List of Created Trails:
+- View Trails:
+  - In the CloudTrail console, go to "Trails" to see a list of created trails.
+
+Multi-Region Trail Configuration:
+- Configure Multi-Region:
+  - When creating a trail, select the option to include global services for multi-region logging.
+
+Disable Logging for Certain Events/Services:
+- Event Selector:
+  - While creating or updating a trail, use "Event selectors" to choose specific events or services to log.
+
+Real-time Use Case of CloudTrail:
+- Security Analysis:
+  - Detect and investigate security incidents by analyzing CloudTrail logs for unauthorized actions or changes.
+
+CloudTrail Event History:
+- Event History:
+  - A record of all API calls and events in your AWS account, accessible in the CloudTrail console.
+
+Log File Integrity Validation:
+- Validation:
+  - CloudTrail uses cryptographic hashes to ensure the integrity of log files, preventing tampering.
+SNS:
+(Simple Notification Service):
+
+- Definition: Amazon Simple Notification Service (SNS) is a fully managed messaging service that enables the publishing and subscribing of messages or notifications.
+
+- Usage: Used to send messages or notifications to a distributed set of recipients or endpoints.
+
+Amazon SNS Function and Configuration:
+
+- Function: Allows the creation of topics, to which messages can be published, and subscriptions can be made by endpoints or clients.
+
+- Configuration:
+  1. Create a Topic.
+  2. Define Subscriptions (ex., email, SMS, Lambda function).
+  3. Publish messages to the topic.
+
+Amazon SNS vs. Amazon SQS:
+
+- SNS:
+  - Pub/Sub model.
+  - Pushes messages to subscribers.
+  - Supports multiple protocols.
+
+-  SQS:
+  - Queue model.
+  - Polls messages from the queue.
+  - Decouples message producers and consumers.
+
+ Delivery Formats and Transports in AWS SNS:
+
+- Delivery Formats: JSON, raw text, or other custom formats.
+  
+- Transports: Supported transports include Amazon SQS, Lambda functions, HTTP/HTTPS, email/SMTP, SMS, and more.
+
+Difference Between SNS FIFO & Standard:
+
+- FIFO Topics:
+  - Order-preserving.
+  - Guarantees that messages are delivered in the order they are sent.
+
+- Standard Topics:
+  - Does not guarantee the order of message delivery.
+
+ Services Configured with AWS SNS:
+
+- Configured with various AWS services, including Lambda, SQS, HTTP/HTTPS endpoints, mobile devices for push notifications, and more.
+
+10DLC in AWS:
+
+- Definition: 10DLC (10-Digit Long Code) is a type of long code used for sending A2P (Application-to-Person) messages.
+
+ FIFO Topics on SNS:
+
+- FIFO: First-In-First-Out topics in SNS ensure that messages are processed in the order they are received.
+
+SNS Mobile Push:
+
+-  Mobile Push: SNS supports mobile push notifications to deliver messages to mobile devices using platforms like Apple, Google, and Amazon.
+
+Delivery Method and Subscription Configuration:
+
+- Subscription Configuration: Choose the delivery method based on the type of subscriber.
+  - Email, SMS, or HTTP/HTTPS for different endpoints.
+  - SQS or Lambda for processing messages.
+
+EC2
+(Elastic Compute Cloud):
+- Definition: EC2 is a web service offered by AWS that provides resizable compute capacity in the cloud. It allows users to run virtual servers, known as instances, on-demand.
+
+- Need in Cloud Computing: 
+  - Enables users to quickly scale compute capacity.
+  - Provides a cost-effective solution for running applications.
+
+Features of Amazon EC2:
+
+1. Scalability: Easily scale up or down based on demand.
+2. Variety of Instance Types: Choose instances optimized for different use cases.
+3. AMI (Amazon Machine Image): Create customized instances with pre-configured software.
+4. Security Groups: Control inbound/outbound traffic to instances.
+5. Elastic Load Balancing: Distribute incoming traffic across multiple instances.
+6. Elastic Block Store (EBS): Persistent block-level storage for instances.
+7. Monitoring: Gather performance metrics and logs.
+
+ Hypervisor:
+
+- Definition: Hypervisor is a virtualization technology that allows multiple operating systems to share a single hardware host. It abstracts the physical hardware and enables the creation of virtual machines (VMs).
+
+- Types: Two main types of hypervisors:
+  1. Type 1 (Bare Metal): Installed directly on the physical hardware.
+  2. Type 2 (Hosted): Runs on top of an operating system.
+
+- Where Used: Used in cloud computing to virtualize resources and allocate them to instances or VMs.
+
+Steps to Create an EC2 Instance:
+
+1. Sign in to AWS Console: Access the AWS Management Console.
+2. Navigate to EC2: Open the EC2 service.
+3. Launch Instance: Click "Launch Instance."
+4. Choose AMI: Select an Amazon Machine Image.
+5. Choose Instance Type: Pick an instance type based on requirements.
+6. Configure Instance:  Set instance details, add storage, and configure security groups.
+7. Review and Launch: Review settings and launch the instance.
+
+ EC2 Instance State:
+
+- Definition: Refers to the current status of an EC2 instance.
+
+Types of EC2 Instance-State Codes:
+
+1. Pending: The instance is launching.
+2. Running: The instance is active.
+3. Shutting Down: The instance is being stopped or terminated.
+4. Terminated: The instance is terminated.
+5. Stopping: The instance is in the process of being stopped.
+
+Server Hibernating Mode:
+
+- Meaning:There isn't a direct "hibernating mode" for EC2 instances.
+- Context: Instances can be stopped or terminated. Stopping an instance preserves its data and allows restarting, while termination permanently deletes the instance.
+
+KMS
+AWS Amazon EC2 Instance Types:
+
+- Definition: Various configurations of virtual machines optimized for different use cases.
+
+Types of Status Checks in AWS:
+
+1. System Status Checks: Ensure the underlying physical host is healthy.
+2.Instance Status Checks: Confirm the instance's operating system is running as expected.
+
+Global View Option in EC2 Service:
+
+- Location: Found in the EC2 Dashboard.
+- Use: Allows you to view instances from all regions in one consolidated view.
+
+Default Jump to North Virginia Region:
+
+- Popularity: North Virginia (us-east-1) is one of the earliest AWS regions and is often chosen by default.
+- Resources Availability: It offers a wide range of services and resources.
+
+EBS Volumes and Types:
+
+- Definition: Elastic Block Store provides scalable block storage for EC2 instances.
+- Types: 
+  1. General Purpose (SSD)
+  2. Provisioned IOPS (SSD)
+  3. Throughput Optimized (HDD)
+  4. Cold HDD
+
+Purpose of Using EBS Volumes:
+
+- Purpose: Provides persistent and high-performance block-level storage for EC2 instances.
+
+Purchasing Options in AWS EC2:
+
+- On-Demand Instances
+- Reserved Instances
+- Spot Instances
+- Dedicated Hosts
+
+AWS AMI Image vs. AWS Template:
+
+- AMI Image: A snapshot of a machine, including the OS and any installed applications.
+- AWS Template: A CloudFormation template for defining AWS infrastructure as code.
+
+ NIC (Network Interface Card) and Types:
+
+- Definition: A hardware component that enables computers to connect to a network.
+- Types: Primary and secondary NICs.
+
+Elastic IP:
+
+- Definition: A static IPv4 address designed for dynamic cloud computing.
+- Use: Provides a fixed IP address to an EC2 instance, even if it's stopped and restarted.
+
+Snapshot and Its Use:
+
+- Definition: A point-in-time copy of an EBS volume.
+- Use: Backup, disaster recovery, and creating new volumes.
+
+Saving Money in Snapshot Costing:
+
+- Automation: Delete manual snapshots and use lifecycle policies for automated snapshot management.
+
+Lifecycle Manager in Snapshot:
+
+- Definition: AWS Backup's feature for managing backup policies and retention periods.
+
+Amazon Lifecycle Manager:
+
+- Function: Manages the lifecycle of EBS snapshots, allowing automated backups and retention policies.
+
+Security Group vs. NACL:
+
+- Security Group: Acts as a virtual firewall for instances.
+- Network ACL (NACL): Acts as a network-level firewall for subnets.
+
+NACL and Its Types:
+
+- Definition: A rule-based tool controlling inbound and outbound traffic at the subnet level.
+- Types: Ingress and Egress rules.
+
+Number of IP Addresses for Instances:
+
+- IPv4: Can have one private and one public IPv4 address.
+- IPv6: Can have one or more IPv6 addresses.
+
+Volume States:
+
+- In Use
+- Available
+- Deleting
+- Error
+
+Key Pair and Types:
+
+- Definition: A pair of public and private keys for secure SSH access.
+- Types: RSA and ECDSA.
+
+Load Balancer and Types:
+
+- Definition: Distributes incoming network traffic across multiple servers.
+- Types: Classic, Application, and Network Load Balancers.
+
+Load Balancer Backend Operation:
+
+- Balancing Act: Distributes incoming requests to healthy instances.
+- Health Checks: Monitors the health of instances.
+
+Features of Load Balancers:
+
+- High Availability
+- Automatic Scaling
+- Fault Tolerance
+- Security
+
+ASG (Auto Scaling Group) and Types:
+
+- Definition: Ensures the desired number of instances are available.
+- Types: Simple and Scaling Policies.
+
+Health Check:
+
+- Definition: A process ensuring that instances are healthy and available to handle traffic.
+
+Threshold:
+
+- Definition: A set limit or point at which an action is triggered.
+
+Group of LB:
+
+- Definition: A collection of instances registered with a load balancer.
+
+ALB (Application Load Balancer) Over ELB:
+
+- Advantages: Supports more complex routing, multiple SSL certificates, and improved flexibility.
+
+Web Server vs. Application Server:
+
+- Web Server: Handles HTTP requests and serves static content.
+- Application Server: Processes business logic and database interactions.
+
+Target Group:
+
+- Definition: A set of instances receiving traffic from a load balancer.
+
+Desired Capacity in ASG:
+
+- Definition: The number of instances ASG maintains.
+
+Scaling Options:
+
+- Manual Scaling
+- Scheduled Scaling
+- Dynamic Scaling
+
+Scaling Plans:
+
+- Simple Scaling
+- Step Scaling
+- Target Tracking Scaling
+
+Types of Auto Scaling:
+
+- Vertical Scaling
+-Horizontal Scaling
+
+Difference Between AMI and Snapshot:
+
+- AMI: Captures the entire root volume, including the OS and applications.
+- Snapshot: Captures only the data on the EBS volume.
+
+Difference Between EBS, EFS, and S3:
+
+- EBS: Block storage attached to EC2 instances.
+- EFS: Network file storage for EC2 instances.
+- S3: Object storage for scalable data storage.
+
+
+VPC
+(Virtual Private Cloud):
+
+- Definition: VPC is a logically isolated section of the AWS Cloud where you can launch AWS resources.
+
+Subnets in VPC:
+
+- Definition: Divisions of IP address ranges within a VPC to deploy resources in different availability zones.
+
+NAT Device:
+
+- Definition: Network Address Translation (NAT) device allows instances in a private subnet to initiate outbound traffic to the internet.
+
+Stateful vs. Stateless Filtering:
+
+- Stateful Filtering: Keeps track of the state of active connections, making decisions based on the context of the traffic.
+  
+- Stateless Filtering: Evaluates each packet individually without considering the state of the connection.
+
+Advantages of Using Default VPC:
+
+- Convenience: Quick start for launching instances.
+- Automatic Internet Gateway: Enabled by default.
+- Default Security Groups: Assigned to instances automatically.
+
+Internet Gateway in VPC:
+
+- Definition: An internet gateway allows communication between instances in the VPC and the internet.
+
+Network ACL in VPC:
+
+- Definition: Network Access Control Lists act as a firewall for controlling traffic in and out of subnets.
+
+Security Group in VPC:
+
+- Definition: Acts as a virtual firewall for instances, controlling inbound and outbound traffic.
+
+Elastic IP Address in VPC:
+
+- Definition: A static IPv4 address designed for dynamic cloud computing.
+- Use: Ensures that the IP address of an EC2 instance remains constant, even if the instance is stopped and restarted.
+
+Real-time Example of Elastic IP:
+
+- Scenario: Hosting a website with a fixed IP address.
+- Usage: Assigning an Elastic IP to an EC2 instance ensures that the website's IP address doesn't change, maintaining consistent accessibility.
+
+Attaching Production Elastic IP to New Server:
+
+- Yes:You can detach an Elastic IP from one instance and attach it to another within the same AWS account.
+
+ ELB's Effect on VPC:
+
+- Effect: Elastic Load Balancer (ELB) distributes incoming traffic across multiple instances, improving availability and fault tolerance in the VPC.
+Limitations of VPC, Gateway, and Subnets:
+
+- VPC Limitations:
+  - Maximum of five VPCs per region by default.
+  - Limit on the number of subnets, instances, and Elastic IP addresses.
+
+- Gateway Limitations:
+  - One internet gateway per VPC.
+
+- Subnet Limitations:
+  - Default limit of 200 subnets per VPC.
+
+ Public IP Address and Its Use:
+
+- Definition: A public IP address is an address assigned to a device on the internet.
+- Use: Enables communication with other devices on the internet, allowing inbound and outbound traffic.
+
+ Bastion Host Concept:
+
+- Definition: A highly secure server that provides access to a private network from an external network.
+- Use: Used for secure remote access to servers in a private subnet.
+
+When to Create a New Customized VPC:
+
+- Scenario: When default VPC settings don't meet specific requirements.
+- Reasons: Custom VPC allows fine-grained control over IP addressing, subnets, and routing.
+
+Peering and Its Need:
+
+- Definition: VPC Peering connects two VPCs, enabling them to communicate.
+- Need: Used to share resources, data, or services between VPCs securely.
+
+VPN (Virtual Private Network) and VPN Tunnel:
+
+- Definition: VPN establishes a secure connection over the internet between a user and a network.
+- Use: Commonly used for remote access to private networks or connecting multiple offices.
+- VPN Tunnel: Encrypted connection between two networks, ensuring secure data transmission.
